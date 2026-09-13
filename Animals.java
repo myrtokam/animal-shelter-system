@@ -24,27 +24,28 @@ public class Animals {
     private String description;
     private Boolean special_needs;
 
-    public void registerAnimal(){
+    public static void registerAnimal(){
+
 
     }
 
-    public void searchAnimal(){
+    public static void searchAnimal(){
 
     }
 
-    public void updateAnimal(){
+    public static void updateAnimal(){
 
     }
 
-    public void changeAnimalStatus(){
+    public static void changeAnimalStatus(){
 
     }
 
-    public void getAnimalById() {
+    public static void getAnimalById() {
 
     }
 
-    public void getAllAnimals() {
+    public static void getAllAnimals() {
 
     }
 
@@ -235,7 +236,4 @@ public class Animals {
         this.special_needs = special_needs;
 
     }
-
-
-
 }

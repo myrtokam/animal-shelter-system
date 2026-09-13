@@ -10,7 +10,7 @@ public class DatabaseConnection {
 
         String url = "jdbc:postgresql://localhost:5432/PawBase";
         String username = "shelter_app";
-        String password = "Dean_Wintcheaster" ;
+        String password = "Dean_Wintcheaster";
 
         try {
             connection = DriverManager.getConnection(url, username, password);

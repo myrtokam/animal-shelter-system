@@ -1,8 +1,7 @@
-import java.sql.*;
+import java.sql.Date;
 
-public class Animals {
-
-
+public class Animals
+{
     private int animalId;
     private String microchipNumber;
     private String name;
@@ -13,10 +12,10 @@ public class Animals {
     private Date estimated_birth_date;
     private String color;
     private double weight;
-    private  int status_id;
-    private  boolean sterilized;
-    private  Date sterilization_date;
-    private  Date intake_date;
+    private int status_id;
+    private boolean sterilized;
+    private Date sterilization_date;
+    private Date intake_date;
     private Date found_date;
     private Date death_date;
     private Date created_at;
@@ -24,37 +23,30 @@ public class Animals {
     private String description;
     private Boolean special_needs;
 
-    public static void registerAnimal(){
-
-
+    public static boolean registerAnimal(Animals animals) {
+        return true;
     }
 
-    public static void searchAnimal(){
-
+    public static void searchAnimal() {
     }
 
-    public static void updateAnimal(){
-
+    public static void updateAnimal() {
     }
 
-    public static void changeAnimalStatus(){
-
+    public static void changeAnimalStatus() {
     }
 
     public static void getAnimalById() {
-
     }
 
     public static void getAllAnimals() {
-
     }
-
 
     public Animals() {
     }
 
     public int getAnimalId() {
-        return animalId;
+        return this.animalId;
     }
 
     public void setAnimalId(int animalId) {
@@ -62,7 +54,7 @@ public class Animals {
     }
 
     public String getMicrochipNumber() {
-        return microchipNumber;
+        return this.microchipNumber;
     }
 
     public void setMicrochipNumber(String microchipNumber) {
@@ -70,7 +62,7 @@ public class Animals {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -78,7 +70,7 @@ public class Animals {
     }
 
     public int getSpeciesId() {
-        return speciesId;
+        return this.speciesId;
     }
 
     public void setSpeciesId(int speciesId) {
@@ -86,7 +78,7 @@ public class Animals {
     }
 
     public int getBreedId() {
-        return breedId;
+        return this.breedId;
     }
 
     public void setBreedId(int breedId) {
@@ -94,7 +86,7 @@ public class Animals {
     }
 
     public String getSex_id() {
-        return sex_id;
+        return this.sex_id;
     }
 
     public void setSex_id(String sex_id) {
@@ -102,7 +94,7 @@ public class Animals {
     }
 
     public Date getDate_of_birth() {
-        return date_of_birth;
+        return this.date_of_birth;
     }
 
     public void setDate_of_birth(Date date_of_birth) {
@@ -110,7 +102,7 @@ public class Animals {
     }
 
     public Date getEstimated_birth_date() {
-        return estimated_birth_date;
+        return this.estimated_birth_date;
     }
 
     public void setEstimated_birth_date(Date estimated_birth_date) {
@@ -118,7 +110,7 @@ public class Animals {
     }
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColor(String color) {
@@ -126,7 +118,7 @@ public class Animals {
     }
 
     public double getWeight() {
-        return weight;
+        return this.weight;
     }
 
     public void setWeight(double weight) {
@@ -134,7 +126,7 @@ public class Animals {
     }
 
     public int getStatus_id() {
-        return status_id;
+        return this.status_id;
     }
 
     public void setStatus_id(int status_id) {
@@ -142,7 +134,7 @@ public class Animals {
     }
 
     public boolean isSterilized() {
-        return sterilized;
+        return this.sterilized;
     }
 
     public void setSterilized(boolean sterilized) {
@@ -150,7 +142,7 @@ public class Animals {
     }
 
     public Date getSterilization_date() {
-        return sterilization_date;
+        return this.sterilization_date;
     }
 
     public void setSterilization_date(Date sterilization_date) {
@@ -158,7 +150,7 @@ public class Animals {
     }
 
     public Date getIntake_date() {
-        return intake_date;
+        return this.intake_date;
     }
 
     public void setIntake_date(Date intake_date) {
@@ -166,7 +158,7 @@ public class Animals {
     }
 
     public Date getFound_date() {
-        return found_date;
+        return this.found_date;
     }
 
     public void setFound_date(Date found_date) {
@@ -174,7 +166,7 @@ public class Animals {
     }
 
     public Date getDeath_date() {
-        return death_date;
+        return this.death_date;
     }
 
     public void setDeath_date(Date death_date) {
@@ -182,7 +174,7 @@ public class Animals {
     }
 
     public Date getCreated_at() {
-        return created_at;
+        return this.created_at;
     }
 
     public void setCreated_at(Date created_at) {
@@ -190,7 +182,7 @@ public class Animals {
     }
 
     public Date getUpdated_at() {
-        return updated_at;
+        return this.updated_at;
     }
 
     public void setUpdated_at(Date updated_at) {
@@ -198,7 +190,7 @@ public class Animals {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -206,7 +198,7 @@ public class Animals {
     }
 
     public Boolean getSpecial_needs() {
-        return special_needs;
+        return this.special_needs;
     }
 
     public void setSpecial_needs(Boolean special_needs) {
@@ -234,6 +226,6 @@ public class Animals {
         this.updated_at = updated_at;
         this.description = description;
         this.special_needs = special_needs;
-
     }
+
 }

@@ -1,20 +1,20 @@
+
 import java.util.Date;
 
 public class MedicalRecords {
     private String medicalrecord;
     private Date medicalExamingdDate;
     private String DoctorsName;
-    private  String Diagnosis;
+    private String Diagnosis;
     private String MedicalTreatment;
-    private  String MedicalPrescriptions;
+    private String MedicalPrescriptions;
     private String MedicalNotes;
 
-    public static void create_medical_record()
-    {
+    public static void create_medical_record() {
     }
 
     public String getMedicalrecord() {
-        return medicalrecord;
+        return this.medicalrecord;
     }
 
     public void setMedicalrecord(String medicalrecord) {
@@ -22,7 +22,7 @@ public class MedicalRecords {
     }
 
     public Date getMedicalExamingdDate() {
-        return medicalExamingdDate;
+        return this.medicalExamingdDate;
     }
 
     public void setMedicalExamingdDate(Date medicalExamingdDate) {
@@ -30,43 +30,43 @@ public class MedicalRecords {
     }
 
     public String getDoctorsName() {
-        return DoctorsName;
+        return this.DoctorsName;
     }
 
     public void setDoctorsName(String doctorsName) {
-        DoctorsName = doctorsName;
+        this.DoctorsName = doctorsName;
     }
 
     public String getDiagnosis() {
-        return Diagnosis;
+        return this.Diagnosis;
     }
 
     public void setDiagnosis(String diagnosis) {
-        Diagnosis = diagnosis;
+        this.Diagnosis = diagnosis;
     }
 
     public String getMedicalTreatment() {
-        return MedicalTreatment;
+        return this.MedicalTreatment;
     }
 
     public void setMedicalTreatment(String medicalTreatment) {
-        MedicalTreatment = medicalTreatment;
+        this.MedicalTreatment = medicalTreatment;
     }
 
     public String getMedicalPrescriptions() {
-        return MedicalPrescriptions;
+        return this.MedicalPrescriptions;
     }
 
     public void setMedicalPrescriptions(String medicalPrescriptions) {
-        MedicalPrescriptions = medicalPrescriptions;
+        this.MedicalPrescriptions = medicalPrescriptions;
     }
 
     public String getMedicalNotes() {
-        return MedicalNotes;
+        return this.MedicalNotes;
     }
 
     public void setMedicalNotes(String medicalNotes) {
-        MedicalNotes = medicalNotes;
+        this.MedicalNotes = medicalNotes;
     }
 
     public MedicalRecords() {
@@ -75,35 +75,35 @@ public class MedicalRecords {
     public MedicalRecords(String medicalrecord, Date medicalExamingdDate, String doctorsName, String diagnosis, String medicalTreatment, String medicalPrescriptions, String medicalNotes) {
         this.medicalrecord = medicalrecord;
         this.medicalExamingdDate = medicalExamingdDate;
-        DoctorsName = doctorsName;
-        Diagnosis = diagnosis;
-        MedicalTreatment = medicalTreatment;
-        MedicalPrescriptions = medicalPrescriptions;
-        MedicalNotes = medicalNotes;
+        this.DoctorsName = doctorsName;
+        this.Diagnosis = diagnosis;
+        this.MedicalTreatment = medicalTreatment;
+        this.MedicalPrescriptions = medicalPrescriptions;
+        this.MedicalNotes = medicalNotes;
     }
 
-    public static void connect_medical_record_to_animal()
-    {
+    public static void connect_medical_record_to_animal() {
     }
-    public static void medical_examination_date()
-    {
+
+    public static void medical_examination_date() {
     }
-    public static void DoctorsName()
-    {
+
+    public static void DoctorsName() {
     }
-    public static void Diagnosis()
-    {
+
+    public static void Diagnosis() {
     }
-    public static void MedicalTreatment()
-    {
+
+    public static void MedicalTreatment() {
     }
-    public static void MedicalPrescriptions()
-    {
+
+    public static void MedicalPrescriptions() {
     }
-    public static void MedicalNotes()
-    {
+
+    public static void MedicalNotes() {
     }
-    public static void MedicalHistoryPerAnimal()
-    {
+
+    public static void MedicalHistoryPerAnimal() {
     }
 }
+

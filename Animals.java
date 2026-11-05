@@ -1,45 +1,182 @@
 import java.sql.Date;
+import java.text.ParseException;
 
-public class Animals
-{
+public class Animals {
+
     private int animalId;
     private String microchipNumber;
     private String name;
     private int speciesId;
     private int breedId;
     private String sex_id;
+    private double heaviestAnimal;
+    private boolean sterilized;
+
+    public Animals(boolean sterilizedAnimal) {
+        sterilized = sterilizedAnimal;
+    }
+
+    public Animals(double heaviestAnimal) {
+        this.heaviestAnimal = heaviestAnimal;
+    }
     private Date date_of_birth;
     private Date estimated_birth_date;
     private String color;
     private double weight;
     private int status_id;
-    private boolean sterilized;
     private Date sterilization_date;
     private Date intake_date;
     private Date found_date;
     private Date death_date;
     private Date created_at;
-    private Date updated_at;
+    private Date updated_at; 
     private String description;
+    private String AnimalStatus;
     private Boolean special_needs;
+    Animals[] animalsArray = new Animals[1000000];
 
-    public static boolean registerAnimal(Animals animals) {
-        return true;
+    public static int countAnimalsBySpecies(Animals[] animals, int speciesId) {
+        int countAnimlas = 0;
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] != null && animals[i].getSpeciesId() == speciesId) {
+                countAnimlas++;
+            }
+        }
+        return countAnimlas;
     }
 
-    public static void searchAnimal() {
+    public static int countSterilizedAnimals(Animals[] animals) {
+        int countSterilizedAnimals = 0;
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] != null && animals[i].isSterilized()) {
+                countSterilizedAnimals++;
+            }
+        }
+        return countSterilizedAnimals;
     }
 
-    public static void updateAnimal() {
+    public static String findHeaviestAnimal(Animals[] animals, double weight, String heaviestAninal) {
+
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] != null) {
+                double animalweight = animals[i].getWeight();
+                if (animalweight >= weight) {
+                    weight = animalweight;
+                    heaviestAninal = animals[i].getName();
+                }
+            }
+        }
+        return heaviestAninal;
     }
 
-    public static void changeAnimalStatus() {
+    public static String searchAnimal(Animals[] animals, String name) {
+
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] != null) {
+                if (animals[i].getName().equals(name)) {
+                    return name;
+                }
+            }
+        }
+        return null;
     }
 
-    public static void getAnimalById() {
+    public static boolean registerAnimal(Animals animals, Animals[] animalsArray) {
+
+        for (int i = 0; i < animalsArray.length; i++) {
+            if (animalsArray[i] == null) {
+                animalsArray[i] = animals;
+                return true;
+            }
+        }
+        return false;
     }
 
-    public static void getAllAnimals() {
+    public boolean isSterilizedAnimal(Animals animals) {
+        return animals.isSterilized();
+    }
+
+    public static boolean updateAnimal(double weight, String name, Animals[] animalsArray) {
+
+        for (int i = 0; i < animalsArray.length; i++) {
+
+            if (animalsArray[i] != null) {
+                if (animalsArray[i].getName().equals(name)) {
+                    animalsArray[i].setWeight(weight);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean changeAnimalStatus(Animals animals, int status_id) {
+
+        if (status_id >= 1 && status_id <= 31) {
+            animals.setStatus_id(status_id);
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+    public String getAnimalStatus() {
+        return AnimalStatus;
+    }
+
+    public void setSterilizedAnimal(boolean sterilizedAnimal) {
+        sterilized = sterilizedAnimal;
+    }
+
+    public void setHeaviestAnimal(double heaviestAnimal) {
+        this.heaviestAnimal = heaviestAnimal;
+    }
+
+    public int countAnimals(Animals[] animals) {
+
+        int countAnimals = 0;
+
+        for (int i = 0; i < animals.length; i++)
+        {
+            if (animals[i] != null) {
+                countAnimals++;
+            }
+        }
+        return countAnimals;
+    }
+
+    public Animals getAnimalById(Animals[] animals, int animalId) {
+
+        for (int i = 0; i < animals.length; i++) {
+
+            if (animals[i] != null &&
+                    animals[i].getAnimalId() == animalId) {
+                return animals[i];
+            }
+        }
+        return null;
+    }
+
+    public static double calculateAverageWeight(Animals[] animals) {
+
+        double avg = 0, counter = 0, sum = 0, weight = 0;
+
+        for (int i = 0; i < animals.length; i++) {
+
+            if (animals[i] != null) {
+                counter++;
+                weight = animals[i].getWeight();
+                sum += weight;
+            }
+        }
+
+        if (counter == 0) {
+            return 0;
+        }
+
+        avg = sum / counter;
+        return avg;
     }
 
     public Animals() {
@@ -124,6 +261,7 @@ public class Animals
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
 
     public int getStatus_id() {
         return this.status_id;
@@ -227,5 +365,4 @@ public class Animals
         this.description = description;
         this.special_needs = special_needs;
     }
-
 }

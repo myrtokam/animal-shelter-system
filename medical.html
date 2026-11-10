@@ -1,0 +1,25 @@
+<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ιατρικά αρχεία · PawBase</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"><link href="css/style.css" rel="stylesheet"></head><body><div class="layout"><nav id="nav" aria-label="Κύρια πλοήγηση"></nav><main class="main">
+<h1 class="mb-3">Ιατρικά αρχεία 🩺</h1>
+<form id="f" class="panel mb-4"><h2 class="h5">Νέα εξέταση</h2><div class="row g-3">
+<div class="col-md-4"><label class="form-label" for="animal">Ζώο *</label><select id="animal" class="form-select" required></select></div>
+<div class="col-md-4"><label class="form-label" for="date">Ημερομηνία *</label><input id="date" type="date" class="form-control" required></div>
+<div class="col-md-4"><label class="form-label" for="doctor">Κτηνίατρος</label><input id="doctor" class="form-control"></div>
+<div class="col-md-6"><label class="form-label" for="diagnosis">Διάγνωση</label><input id="diagnosis" class="form-control"></div>
+<div class="col-md-6"><label class="form-label" for="treatment">Θεραπεία</label><input id="treatment" class="form-control"></div>
+<div class="col-md-6"><label class="form-label" for="presc">Συνταγές</label><input id="presc" class="form-control"></div>
+<div class="col-md-6"><label class="form-label" for="notes">Σημειώσεις</label><input id="notes" class="form-control"></div></div>
+<button class="btn btn-teal mt-3">Αποθήκευση εξέτασης</button></form>
+<div class="panel"><div class="table-responsive"><table class="table align-middle m-0"><thead><tr><th>Ημ/νία</th><th>Ζώο</th><th>Κτηνίατρος</th><th>Διάγνωση</th><th>Θεραπεία</th><th>Σημειώσεις</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+</main></div><script src="js/api.js"></script><script src="js/app.js"></script>
+<script>
+let animals=[];const $=id=>document.getElementById(id);
+async function draw(){
+  const m=(await api.getMedical()).sort((a,b)=>b.date.localeCompare(a.date));
+  const nm=id=>esc((animals.find(a=>a.animal_id==id)||{}).name||"—");
+  $("rows").innerHTML=m.length?m.map(r=>`<tr><td>${fmtDate(r.date)}</td><td>${nm(r.animal_id)}</td><td>${esc(r.doctor)||"—"}</td><td>${esc(r.diagnosis)||"—"}</td><td>${esc(r.treatment)||"—"}</td><td>${esc(r.notes)||"—"}</td></tr>`).join(""):'<tr><td colspan="6" class="muted">🐾 Δεν υπάρχουν εξετάσεις ακόμα.</td></tr>';
+}
+api.getAnimals().then(a=>{animals=a;$("animal").innerHTML=a.map(x=>`<option value="${x.animal_id}">${esc(x.name)}</option>`).join("");draw();});
+$("f").addEventListener("submit",async e=>{e.preventDefault();
+  await api.createMedical({animal_id:+$("animal").value,date:$("date").value,doctor:$("doctor").value.trim(),diagnosis:$("diagnosis").value.trim(),treatment:$("treatment").value.trim(),prescriptions:$("presc").value.trim(),notes:$("notes").value.trim()});
+  e.target.reset();draw();});
+</script></body></html>
